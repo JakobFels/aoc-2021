@@ -10,8 +10,9 @@ fun main() {
     fun part2(input: List<String>): SonarReport {
         return input.map { it.toInt() }
             .windowed(3)
+            .map { it.sum() }
             .fold(SonarReport(-1, 0)) { prevReport, measurement ->
-            prevReport.addMeasurement(measurement.sum())
+            prevReport.addMeasurement(measurement)
         }
     }
 
